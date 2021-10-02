@@ -60,7 +60,7 @@ if( sizeof($_SESSION['mensagemErroLogin']) > 0 ){
     // armazenar alguns dados em variaveis de sessão e direcionar o usuário para área administrativa
 
     // armazenar o código do usuário
-    $_SESSION['cod_login'] = $dadosUsuario['codlogin'];
+    $_SESSION['cod_login'] = $dadosUsuario['cod_login'];
 
     // nome do usuário
     $_SESSION['nome'] = $dadosUsuario['nome'];
