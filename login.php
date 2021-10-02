@@ -38,14 +38,14 @@
                 if(isset($_GET['erro']) ){
 
                     $dadosFormLogin = @$_SESSION['dadosFormLogin'];
-                    $erroLogin = $_SESSION['mensagemErroLogin'];
+                    $erroLogin = @$_SESSION['mensagemErroLogin'];
 
                 }
                 
                 ?>
 
 
-                <form action="valida-login.php" method="POST" id="formLogin">
+                <form action="valida-login.php" method="post" id="formLogin">
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -66,7 +66,7 @@
 
                     <?php 
                     
-                        if (isset($erroLogin) ) {
+                        if ( isset($erroLogin) ) {
                             echo "<ul class='alert alert-danger'>";
 
                             foreach( $erroLogin as $erro ){

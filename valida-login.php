@@ -7,11 +7,11 @@ $senha = $_POST['senha'];
 $_SESSION['dadosFormLogin'] = $_POST; // armazenar todos os dados via POST
 $_SESSION['mensagemErroLogin'] = array(); // array para armazenar as mensagens de login
 
-if(strlen($email) < 1){
+if( strlen($email) < 1){
     $_SESSION['mensgaemErroLogin'][] = "O campo email é obrigatório";
 }
 
-if(strlen($senha) < 1){
+if( strlen($senha) < 1){
     $_SESSION['mensgaemErroLogin'][] = "O campo senha é obrigatório";
 }
 
@@ -60,7 +60,7 @@ if( sizeof($_SESSION['mensagemErroLogin']) > 0 ){
     // armazenar alguns dados em variaveis de sessão e direcionar o usuário para área administrativa
 
     // armazenar o código do usuário
-    $_SESSION['cod_login'] = $dadosUsuario['cod_login'];
+    $_SESSION['cod_login'] = $dadosUsuario['codlogin'];
 
     // nome do usuário
     $_SESSION['nome'] = $dadosUsuario['nome'];

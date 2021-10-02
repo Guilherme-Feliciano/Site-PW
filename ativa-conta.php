@@ -5,7 +5,7 @@ $codigoAtivacao = $_GET['codigoAtivacao'];
 include ("connection/conexao.php");
 
 $sql = "SELECT * FROM tbl_login 
-                 WHERE cod_ativacao=md5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
+                 WHERE cod_ativacao=MD5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
 
 //echo $sql;
 
