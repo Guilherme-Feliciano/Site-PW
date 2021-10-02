@@ -45,7 +45,7 @@
                 ?>
 
 
-                <form action="valida-login.php" method="post" id="formLogin">
+                <form action="valida-login.php" method="POST" id="formLogin">
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

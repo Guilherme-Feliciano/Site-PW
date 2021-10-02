@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 $nome = $_POST['nome'];
@@ -46,7 +46,7 @@ if(sizeof($_SESSION['mensagemErro'])>0){
 
 // gravar os dados do usuario
 $sqlGravaUsuario = "INSERT INTO tbl_login (nome,email,senha,tipo_usuario,status_login)
-                                 VALUES   ('$nome','$email',md5('$senha'),'user',0)";
+                                 VALUES   ('$nome','$email',MD5('$senha'),'user',0)";
 $executaGravaUsuario = $mysqli->query($sqlGravaUsuario);
 
 // se o usuario foi criado, vamos criar o codigo de ativacao da conta
