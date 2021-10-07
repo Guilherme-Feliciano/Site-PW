@@ -46,8 +46,8 @@
             <?php echo $_SESSION['nome']; ?>
           </a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Editar perfil</a>
-              <a class="dropdown-item" href="#">Alterar senha</a>
+              <a class="dropdown-item" href="index.php?pg=perfil">Editar perfil</a>
+              <a class="dropdown-item" href="index.php?pg=altera-senha">Alterar senha</a>
             </div>
           </li>
         </ul>

@@ -14,6 +14,7 @@ if( $operacao == "cadastrar" ){
                                 VALUES('$categoria','$cod_login')";    
                                 
     $mensagem = "Categoria cadastrada com sucesso!";
+    
 
 } // fim do casdastrar
 
@@ -26,6 +27,7 @@ if( $operacao == "editar" ){
 
     $mensagem = "Categoria editada com sucesso";
 
+
 } // fim do editar
 
 if( $operacao == "excluir" ){
@@ -35,6 +37,7 @@ if( $operacao == "excluir" ){
     $sql = "DELETE * FROM tbl_categoria WHERE cod_categoria='$cod_categoria' ";
 
     $mensgaem = "Categoria excluída com sucesso!";
+
 
 } // fim do excluir
 
@@ -47,8 +50,8 @@ include("../connection/conexao.php");
 $executa = $mysqli->query($sql);
 
 if ($executa){
-    header("location:index.php?pg=lista-categoria&msg=$mensagem");
+    header("location:index.php?pg=lista-categorias&msg=$mensagem");
 }else{
-    header("location:index.php?pg=lista-categoria&msg=Erro ao executar, contate o administrador.");
+    header("location:index.php?pg=lista-categorias&msg=Erro ao executar, contate o administrador.");
 }
 ?>
