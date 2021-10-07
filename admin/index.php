@@ -36,7 +36,7 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(atual)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Categoria</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Desativado</a>
