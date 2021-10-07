@@ -50,14 +50,14 @@ include("../connection/conexao.php");
 $executa = $mysqli->query($sql);
 
 // obter o número de linha retornada pela consulta
-$totalLinhas = $executa->nuw_rows;
+$totalLinhas = $executa->num_rows;
 
 // se o total de linhas for menor que 1, exibir uma mensgaem para o usuário
 if( $totalLinhas < 1){
   
 echo "<tr>  
           <td colspan='4'> Não existe categorias cadastradas. </td>
-      </tr>";    
+      </tr>";
 
 }else{
 // obter os dados retornados pela consulta
@@ -73,12 +73,12 @@ echo "<tr>
       <td scope="col"> <?php echo $dados['cod_categoria']; ?> </td>
       <td scope="col"> <?php echo $dados['categoria']; ?> </td>
       <td scope="col">
-        <a href="index.php?pg=form-categoria&operacao=editar&cod_categoria=<?php echo $dados['cod_categoria'];?>"> 
+        <a href="index.php?pg=form-categoria&operacao=editar&cod_categoria=<?php echo @$dados['cod_categoria'];?>"> 
          editar
         </a>  
       </td>
       <td scope="col">
-        <a href="acoes-categoria.php?operacao=excluir&cod_categoria=<?php echo $dados['cod_categoria'];?>"> 
+        <a href="acoes-categoria.php?operacao=excluir&cod_categoria=<?php echo @$dados['cod_categoria'];?>"> 
         excluir </a> 
       </td>
     </tr>

@@ -25,7 +25,7 @@
   <body cz-shortcut-listen="true">
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Admin</a>
+      <a class="navbar-brand" href="index.php">Admin</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,13 +33,13 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(atual)</span></a>
+            <a class="nav-link" href="index.php">Home <span class="sr-only">(atual)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Categoria</a>
+            <a class="nav-link" href="index.php?pg=lista-categorias">Categoria</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Desativado</a>
+            <a class="nav-link disabled" href="index.php?pg=lista-anuncios">Anúncios</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="https://example.com/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,10 +59,30 @@
 
     <main role="main" class="container">
 
-      <div class="starter-template">
-        <h1>Template Bootstrap inicial</h1>
-        <p class="lead">Use este documento como uma maneira de iniciar um novo projeto, rapidamente.<br>Tudo oquê você começa é com este texto e um documento HTML (quase vazio).</p>
-      </div>
+    <?php  
+    
+      if (isset($_GET['pg']) ){
+        $pagina = $_GET['pg'];
+
+        // verificar se o arquivo existe
+        if ( file_exists($pagina.".php") ){
+
+          include($pagina.".php");
+
+        }else{
+
+          include("404.php");
+
+        }
+
+      }else{
+
+        // incluir o arquivo padrão de boas vindas
+        include("boas-vindas.php");
+
+      }
+    
+    ?>
 
     </main><!-- /.container -->
 

@@ -17,18 +17,18 @@ if( $operacao == "cadastrar" ){
 
 } // fim do casdastrar
 
-if( $operacao == "cadastrar" ){
+if( $operacao == "editar" ){
     
     // receber o código de registro a ser editado
     $cod_categoria = $_POST['cod_categoria'];
 
     $sql = "UPDATE tbl_categoria SET categoria='$categoria' WHERE cod_categoria='$cod_categoria' ";
 
-    $mensagem = "Categoria cadastrada com sucesso";
+    $mensagem = "Categoria editada com sucesso";
 
 } // fim do editar
 
-if( $operacao == "cadastrar" ){
+if( $operacao == "excluir" ){
     //receber o código do registro que vai ser excluído
     $cod_categoria = $_GET['cod_categoria'];
 

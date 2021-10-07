@@ -17,7 +17,7 @@ if ( $operacao == "editar" ){
   // criar consulta 
   $sql = "SELECT * FROM tbl_categoria WHERE cod_categoria='$cod_categoria' ";
 
-  //incluir aconexao
+  //incluir a conexao
 include("../connection/conexao.php");
   
   // executa a consulta 
