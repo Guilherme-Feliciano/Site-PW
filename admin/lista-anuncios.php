@@ -49,7 +49,13 @@ if (isset($_GET['msg'])) {
     while ($dados = $executa->fetch_assoc()) { ?>
 
       <div class="row border-bottom">
-        <div class="col-sm-3"> imagem </div>
+        <div class="col-sm-3">  
+          <?php if(strlen($dados['imagem']) > 0 ){
+            echo "<img src='../imagens/".$dados['imagem']."' width='180' height='180' >";
+          }else {
+            echo "<img src='../imagens/imagem_padrao.jpeg' width='180' height='180' >";
+          }?>
+        </div>
         <div class="col-sm-7"> 
           <p> Categoria </p>
           <p><?php echo '#'.$dados['cod_produto'].' - '.$dados['nome_produto'];?> </p>
