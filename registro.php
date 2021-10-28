@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon/pw3.ico">
+    <!-- <link rel="icon" href="favicon/icone.ico"> -->
 
-    <title>Criar conta - PW3</title>
+    <title>Criar conta</title>
 
     <!-- Principal CSS do Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <link href="css/starter-template.css" rel="stylesheet">
 
     <!-- FONTAWESOME -->
-    <script src="https://kit.fontawesome.com/77f3dd62a7.js" crossorigin="anonymous"></script>
+    <script src="js/fontawesome.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -29,11 +29,11 @@
         <div class="row">
             <div class="col-sm-4 offset-sm-4 bg-white mt-5 border rounded bg-white">
                 <h1 class="h4 text-center">
-                    <a href="index.php">PW III</a>
+                    <a href="index.php">Home</a>
                 </h1>
                 <p class="login-box-msg text-center">Crie sua conta gratuita</p>
 
-<?php session_start();
+                <?php session_start();
                 if (isset($_GET['erro'])) {
                     $dadosForm = $_SESSION['dadosForm'];
                     $erro = @$_SESSION['erro'];

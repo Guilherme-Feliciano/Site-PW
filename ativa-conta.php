@@ -1,24 +1,24 @@
-<?php
+﻿<?php 
 // recebe o código de ativação pelo método GET	 	
 $codigoAtivacao = $_GET['codigoAtivacao'];
 
-include ("connection/conexao.php");
+include "connection/conexao.php";
 
 $sql = "SELECT * FROM tbl_login 
-                 WHERE cod_ativacao=MD5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
+                 WHERE cod_ativacao=md5('$codigoAtivacao') OR cod_ativacao='$codigoAtivacao' ";
 
 //echo $sql;
 
 $executa_sql = $mysqli->query($sql);
 
 // pega o total de linhas retornado pela consulta
-$totalLinhas = $executa_sql->num_rows;
+$total_linhas = $executa_sql->num_rows;
 
 // dados do select
 $dadosUsuario = $executa_sql->fetch_assoc();
 
 // se linhas for igual a 1, ativamos a conta
-if($totalLinhas == 1){
+if($total_linhas==1){
 
 	//ativar a conta dando o update na tabela de login
 	$ativaConta = "UPDATE tbl_login SET 

@@ -64,7 +64,12 @@ $_SESSION['cod_login'] = $dadosUsuario['cod_login'];
 // nome do usuario
 $_SESSION['nome'] = $dadosUsuario['nome'];
 
+// email do usuario
+$_SESSION['email'] = $dadosUsuario['email'];
+
 header("location:admin/index.php");
 
 
 }
+
+?>

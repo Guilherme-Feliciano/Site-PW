@@ -1,8 +1,8 @@
-<?php @session_start();
+<?php session_start();
 
-// destruir todas as váriaveis de sessão
+// destruir todas as variaveis de sessao
 session_destroy();
 
-header("location:../login.php")
+header("location:../login.php");
 
 ?>

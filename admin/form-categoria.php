@@ -7,23 +7,23 @@
 </nav>
 
 <?php 
-// receber via get a operação 
+// receber via get a operacao
 $operacao = $_GET['operacao'];
 
-if ( $operacao == "editar" ){
+if( $operacao == "editar" ){
 
   $cod_categoria = $_GET['cod_categoria'];
-  
-  // criar consulta 
-  $sql = "SELECT * FROM tbl_categoria WHERE cod_categoria='$cod_categoria' ";
 
-  //incluir a conexao
-include("../connection/conexao.php");
-  
-  // executa a consulta 
+  // criar a consulta
+  $sql = "SELECT * FROM tbl_categoria  WHERE cod_categoria='$cod_categoria' ";
+
+  // incluir a conexao
+  include("../connection/conexao.php");
+
+  // executar a consulta
   $executa = $mysqli->query($sql);
 
-  //obter os dados da consulta
+  // obter os dados da consulta
   $dados = $executa->fetch_assoc();
 
 }

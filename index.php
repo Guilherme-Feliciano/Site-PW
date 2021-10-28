@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon/pw3.ico">
+    <!-- <link rel="icon" href="favicon/icone.ico"> -->
 
-    <title>PW3</title>
+    <title>Site Anúncios</title>
 
     <!-- Principal CSS do Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -16,18 +16,19 @@
     <link href="css/starter-template.css" rel="stylesheet">
 
     <!-- FONTAWESOME -->
-    <script src="js/fontawesome.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/77f3dd62a7.js" crossorigin="anonymous"></script>
+    
   </head>
 
   <body cz-shortcut-listen="true">
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(atual)</span></a>
@@ -48,7 +49,7 @@
           </li>
         </ul>
         <div class="my-2 my-lg-0">
-          <a href="login.php" class="btn btn-outline-success"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="login.php" class="btn btn-outline-success my-2 my-sm-0"><i class="fas fa-sign-in-alt"></i> Login</a>
         </div>
       </div>
     </nav>
@@ -59,7 +60,6 @@
         <h1>Template Bootstrap inicial</h1>
         <p class="lead">Use este documento como uma maneira de iniciar um novo projeto, rapidamente.<br>Tudo oquê você começa é com este texto e um documento HTML (quase vazio).</p>
       </div>
-
     </main><!-- /.container -->
 
     <!-- Principal JavaScript do Bootstrap
@@ -69,4 +69,5 @@
     <script src="js/bootstrap.js"></script>
   
 
-</body></html>
+</body>
+</html>

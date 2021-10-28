@@ -1,79 +1,59 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon/tcc.ico">
-
-    <title>Site-PW</title>
-
-    <!-- Principal CSS do Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Estilos customizados para esse template -->
-    <link href="css/starter-template.css" rel="stylesheet">
-
-    <!-- FONTAWESOME -->
-    <script src="https://kit.fontawesome.com/77f3dd62a7.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-
-
-
-<main role="main" class="container">
-    <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Perfil</li>
-    </ol>
-    </nav>
-    <h3>Perfil</h3>
-
-    <div class="row">
-        <div class="col-sm-4 offset-sm-4">
-        <form>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1">Alterar imagem</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" name="nome" class="form-control" placeholder="Nome completo" aria-label="nome" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
-                        </div>
-                        <input type="text" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1" readonly>
-                    </div>
-
-                    <div class="form-group text-right text-center">
-                        <button type="submit" class="btn btn-primary">Atualizar</button>
-                    </div>
-
-                </form>
-        </div>
+    <!-- Content Header (Page header) -->
+    <ol class="breadcrumb ">
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item active">Perfil</li>
+            </ol>
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h4 class="m-0 text-dark">Perfil</h4>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+           
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
 
-    </main><!-- /.container -->
+<div class="row">
+    <div class="col-md-4 offset-md-4">
 
-    <!-- Principal JavaScript do Bootstrap
-    ================================================== -->
-    <!-- Foi colocado no final para a página carregar mais rápido -->
-    <script src="js/jquery-3.js"></script>
-    <script src="js/bootstrap.js"></script>
+      <form action="#" method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+          <label>Alterar imagem <small>(<i>.jpg .png .bmp</i>)</small></label>
+          <input type="file" class="form-control" name="imagem" id="imagem">
+        </div>
 
+        <div class="input-group mb-3">
+          <div class="input-group-append"> 
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div><input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo" value="<?php echo $_SESSION['nome']; ?>" required>
+          
+        </div>
+        <div class="input-group mb-3">
+         <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div> <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $_SESSION['email']; ?>" readonly disabled>
+          
+        </div>
 
-</body>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-md-2 offset-sm-8">
+            <button type="submit" class="btn btn-primary btn-block">Atualizar</button>
+          </div>
+          <!-- /.col -->
+        </div>
 
-</html>
+       <br> 
+         
+      </form>
+    </div>
+    <!-- /.form-box -->
+  </div>

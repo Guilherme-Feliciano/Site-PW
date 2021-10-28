@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb">a
+<nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
     <li class="breadcrumb-item"><a href="index.php?pg=lista-anuncios">Anúncios</a></li>
@@ -6,14 +6,12 @@
   </ol>
 </nav>
 
-<?php  
-
+<?php 
 $operacao = $_GET['operacao'];
 
 include("../connection/conexao.php");
 
 ?>
-
 
 <div class="row">
   <div class="col-sm-4">
@@ -23,49 +21,47 @@ include("../connection/conexao.php");
         <label for="categoria">Categoria do anúncio</label>
 
         <select name="categoria_produto" class="form-control" required>
-          <option value="<?php echo @$dados['categoria_produto'];?>">Selecione a categoria</option>
+          <option value="">Selecione a categoria</option>
 
-            <?php 
-            // criar a consulta sql            
-            $consultaCategoria = "SELECT * FROM tbl_categoria ORDER BY categoria ASC";
+          <?php 
+          // criar a consulta SQL
+          $consultaCategoria = "SELECT * from tbl_categoria ORDER BY categoria ASC";
 
-            $executaConsultaCategoria = $mysqli->query($consultaCategoria);
-            
-            $totalLinhasCategoria = $executaConsultaCategoria->num_rows;
+          $executaConsultaCategoria = $mysqli->query($consultaCategoria);
 
-            if ($totalLinhasCategoria > 0){
-              
+          $totalLinhasCategoria = $executaConsultaCategoria->num_rows;
+
+          if($totalLinhasCategoria > 0 ){
+
               while( $categoria = $executaConsultaCategoria->fetch_assoc() ){ ?>
-                
-                <option value="<?php echo $categoria['cod_categoria'] ; ?>">  
-                  <?php echo $categoria['categoria'];?>                  
+
+                <option value="<?php echo $categoria['cod_categoria'];?>"> 
+                  <?php echo $categoria['categoria'];?>
                 </option>
 
-             <?php } // fim do while
+            <?php  } // fim while
 
-            } // fim do if
+          } // fim do if         
+          
+          ?>
+        </select>
 
-
-            
-            ?> </select>
-
-      </div> 
+      </div>
 
       <div class="form-group">
         <label for="nome_produto">Título do anúncio</label>
-        <input type="text" name="nome_produto" class="form-control" placeholder="Informe o título para o anúncio" value="<?php echo @$dados['nome_produto'];?>" required>
+        <input type="text" name="nome_produto" class="form-control" placeholder="Informe o título para o anúncio" value="" required>
       </div>
 
       <div class="form-group">
         <label for="descricao">Descrição</label>
-        <textarea class="form-control" value="<?php echo @$dados['descricao'];?>" name="descricao" required></textarea>
+        <textarea class="form-control" name="descricao" required></textarea>
       </div>
 
       <div class="form-group">
-          <label for="preco">Preço</label>  
-          <input type="text" name="preco" class="form-control" value="<?php echo @$dados['preco'];?>">
+          <label for="preco">Preço</label>
+          <input type="text" name="preco" class="form-control">
       </div>
-
 
       <div class="form-group">
         <label for="imagem">Imagem</label>

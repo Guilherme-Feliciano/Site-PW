@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon/pw3.ico">
+    <!-- <link rel="icon" href="favicon/icone.ico"> -->
 
-    <title>Recupera senha - PW3</title>
+    <title>Recupera senha</title>
 
     <!-- Principal CSS do Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -29,11 +29,11 @@
         <div class="row">
             <div class="col-sm-4 offset-sm-4 bg-white mt-5 border rounded bg-white">
                 <h1 class="h4 text-center">
-                    <a href="index.php">PW III</a>
+                    <a href="index.php">Home</a>
                 </h1>
                 <p class="login-box-msg text-center">Informe seu e-mail para recuperar a senha</p>
 
-                <form action="validaLogin.php" method="post">
+                <form action="#" method="post">
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-    </main><!-- /.container -->
+    </main><!-- /.container -->     
 
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->

@@ -19,11 +19,9 @@
 </div>
 
 <?php 
-
-if (isset($_GET['msg']) ) {
-  echo "<div class='alert alert-sucess'>".$_GET['msg']." </div>";
+if ( isset($_GET['msg']) ) {
+    echo "<div class='alert alert-success'>".$_GET['msg']."</div>";
 }
-
 ?>
 
 <table class="table table-condensed">
@@ -38,56 +36,50 @@ if (isset($_GET['msg']) ) {
 
   <tbody>
 
+  <?php 
+
+  // criar a consulta para exibir as categorias
+  $sql = "SELECT * FROM tbl_categoria";
+
+  // incluir a conexao
+  include("../connection/conexao.php");
+
+  // executar a instrução sql
+  $executa = $mysqli->query($sql);
+
+  // obter o número de linhas retornado pela consulta
+  $totalLinhas = $executa->num_rows;
   
-<?php 
-// criar a consulta para exibir as categorias
-$sql = "SELECT * FROM tbl_categoria";
+  // se o total de linhas for menor que 1, exibir uma mensagem para o usuario
+  if( $totalLinhas < 1  ){
 
-// incluir a conexão
-include("../connection/conexao.php");
+    echo "<tr>
+            <td colspan='4'> Não existem categorias cadastradas. </td>
+          </tr>";
 
-// executar a instrução SQL
-$executa = $mysqli->query($sql);
-
-// obter o número de linha retornada pela consulta
-$totalLinhas = $executa->num_rows;
-
-// se o total de linhas for menor que 1, exibir uma mensgaem para o usuário
-if( $totalLinhas < 1){
+  }else{
   
-echo "<tr>  
-          <td colspan='4'> Não existe categorias cadastradas. </td>
-      </tr>";
+    // obter os dados retornados pela consulta
+    while( $dados = $executa->fetch_assoc() ){
+  ?>
 
-}else{
-// obter os dados retornados pela consulta
-  
-  while( $dados = $executa->fetch_assoc() ){
-    
- 
-    
-    
-
-?>
     <tr>
-      <td scope="col"> <?php echo $dados['cod_categoria']; ?> </td>
+      <td scope="col"> <?php echo $dados['cod_categoria'];?> </td>
       <td scope="col"> <?php echo $dados['categoria']; ?> </td>
       <td scope="col">
-        <a href="index.php?pg=form-categoria&operacao=editar&cod_categoria=<?php echo @$dados['cod_categoria'];?>"> 
-         editar
-        </a>  
+<a href="index.php?pg=form-categoria&operacao=editar&cod_categoria=<?php echo $dados['cod_categoria'];?>"> 
+  <i class="fas fa-edit"></i> Editar
+</a>  
       </td>
       <td scope="col">
-        <a href="acoes-categoria.php?operacao=excluir&cod_categoria=<?php echo @$dados['cod_categoria'];?>"> 
-        excluir </a> 
+<a href="acoes-categoria.php?operacao=excluir&cod_categoria=<?php echo $dados['cod_categoria'];?>"> 
+  <i class="fas fa-trash-alt"></i> Excluir 
+</a> 
       </td>
     </tr>
 
-
-<?php 
- } // fim do while
-} // fim do else ?>
-
+  <?php  } // fim do while  
+       } // fim do else ?>
 
  </tbody>	
 </table>
