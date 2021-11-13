@@ -21,6 +21,9 @@
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/77f3dd62a7.js" crossorigin="anonymous"></script>
     
+    <script src="../js/jquery-3.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
   </head>
 
   <body cz-shortcut-listen="true">
@@ -92,8 +95,7 @@
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->
     <!-- Foi colocado no final para a página carregar mais rápido -->
-    <script src="../js/jquery-3.js"></script>
-    <script src="../js/bootstrap.js"></script>
+   
   
 
 </body>

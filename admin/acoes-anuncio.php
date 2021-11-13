@@ -59,6 +59,15 @@ if ($operacao == 'editar') {
 } // fim do editar
 
 
+if ($operacao == 'excluir'){
+    
+    $cod_produto = $_POST['cod_produto'];
+    
+    $sql = "DELETE FROM tbl_produto WHERE cod_produto='$cod_produto' ";
+
+    $mensagem = "Anúncio excluído com sucesso!";
+
+} // fim da exclusão
 
 
 
