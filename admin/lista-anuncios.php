@@ -29,7 +29,9 @@ if (isset($_GET['msg'])) {
   $cod_login = $_SESSION['cod_login'];  
 
   // criar a consulta para exibir as categorias
-  $sql = " SELECT * FROM tbl_produto WHERE produto_usuario='$cod_login' ";
+  $sql = " SELECT * FROM tbl_produto 
+                INNER JOIN tbl_categoria ON categoria_produto=cod_categoria
+            WHERE produto_usuario='$cod_login' ";
 
   // incluir a conexao
   include("../connection/conexao.php");
@@ -57,11 +59,13 @@ if (isset($_GET['msg'])) {
           }?>
         </div>
         <div class="col-sm-7"> 
-          <p> Categoria </p>
+          <p> <?php echo $dados['categoria'];?> </p>
           <p><?php echo '#'.$dados['cod_produto'].' - '.$dados['nome_produto'];?> </p>
           <p>R$ <?php echo $dados['preco'];?> </p>
         </div>  
-        <div class="col-sm-1 text-right"><a href="#"><i class="fas fa-edit"></i> Editar</a></div>
+        <div class="col-sm-1 text-right">
+          <a href="index.php?pg=form-anuncio&operacao=editar&cod_produto=<?php echo $dados['cod_produto'];?>"><i class="fas fa-edit"></i> Editar</a>
+        </div>
         <div class="col-sm-1"><a href="#"><i class="fas fa-trash-alt"></i> Excluir</a></div>
       </div>
 

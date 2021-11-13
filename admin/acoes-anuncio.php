@@ -36,6 +36,31 @@ if(strlen($imagem) > 0 ){
 
 } // fim se cadastrar
 
+if ($operacao == 'editar') {
+    
+    $cod_produto = $_POST['cod_produto'];
+    $nome_imagem = $_POST['nome_imagem'];
+
+    if (strlen($imagem) > 0 ){
+        copy($imagem_temporaria,"../imagens/$novo_nome");
+        unlink("../imagens/$nome_imagem"); // deletar a imagem
+
+        $nome_imagem = $novo_nome;
+    }
+
+    $sql = "UPDATE tbl_produto SET categoria_produto='$categoria_produto', 
+                                   nome_produto='$nome_produto',
+                                   preco='$preco',
+                                   descricao='$descricao',
+                                   produto_usuario='$cod_login',
+                                   imagem='$nome_imagem',
+                                   WHERE cod_produto=$cod_prouduto";
+
+} // fim do editar
+
+
+
+
 
 // incluir a conexao
 include("../connection/conexao.php");
