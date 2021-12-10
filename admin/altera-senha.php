@@ -20,7 +20,27 @@
 <div class="row">
     <div class="col-md-4 offset-md-4">
 
-      <form action="#" method="post" enctype="multipart/form-data">
+<?php @session_start();
+
+if ( isset($_GET['erro']) ) {
+  
+  $dadosForm = $_SESSION['dadosFormulario'];
+
+  $erro = $_SESSION['erro'];
+
+}
+
+if ( isset($_GET['msg']) ) {
+  
+  $mensagem = $_GET['msg'];
+
+  echo "<div class='alert alert-success'> Senha alterada com sucesso </div>";
+
+}
+
+?>
+
+      <form action="altera-senha-grava.php" method="post" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -36,7 +56,18 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
-          <input type="password" name="senha_atual" class="form-control" placeholder="Senha atual">
+          <input type="password" name="senha_atual" class="form-control" placeholder="Senha atual" 
+          value="<?php echo @$dadosForm['senha_atual'];?>"> 
+          </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          <input type="password" name="nova_senha" class="form-control" placeholder="Nova senha" 
+          value="<?php echo @$dadosForm['nova_senha'];?>">
         </div>
 
         <div class="input-group mb-3">
@@ -45,17 +76,27 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
-          <input type="password" name="nova_senha" class="form-control" placeholder="Nova senha">
+          <input type="password" name="confirma_nova_senha" class="form-control" placeholder="Confirmar Nova senha"
+          value="<?php echo @$dadosForm['confirma_nova_senha'];?>">
         </div>
 
-        <div class="input-group mb-3">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-          <input type="password" name="confirma_nova_senha" class="form-control" placeholder="Confirmar Nova senha">
-        </div>
+<?php 
+
+  if (isset($erro) ) {
+    
+    echo "<div class='alert alert-danger'> ";
+
+    foreach($erro as $mensagem){
+
+       echo "<p> $mensagem </p>";
+
+    } // fim do foreach
+
+    echo "</div>";
+
+  } // fim do if
+
+?>
 
         <div class="row">
           <!-- /.col -->

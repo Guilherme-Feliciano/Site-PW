@@ -39,7 +39,9 @@ if ( isset($_GET['msg']) ) {
   <?php 
 
   // criar a consulta para exibir as categorias
-  $sql = "SELECT * FROM tbl_categoria";
+  $sql = "SELECT *, 
+          IFNULL( (SELECT COUNT(cod_produto) FROM tbl_produto 
+          WHERE categoria_produto=cod_categoria),0 ) AS anuncios FROM tbl_categoria";
 
   // incluir a conexao
   include("../connection/conexao.php");
@@ -59,7 +61,7 @@ if ( isset($_GET['msg']) ) {
 
   }else{
   
-    // obter os dados retornados pela consulta
+    // obter os dados retornados pela consulta 
     while( $dados = $executa->fetch_assoc() ){
   ?>
 
@@ -72,9 +74,22 @@ if ( isset($_GET['msg']) ) {
 </a>  
       </td>
       <td scope="col">
+<!-- ------------------------------------------------------------------------------------------------------ -->
+<?php if($dados['anuncios']==0 ){ ?>
+
 <a href="acoes-categoria.php?operacao=excluir&cod_categoria=<?php echo $dados['cod_categoria'];?>"> 
   <i class="fas fa-trash-alt"></i> Excluir 
 </a> 
+
+<?php }else{ ?>
+
+  <a href="#" data-toggle="modal" data-target="#modalAlertCategoria">
+  <i class="fas fa-trash-alt"></i> Excluir 
+  </a>
+
+<?php } ?>
+<!-- ------------------------------------------------------------------------------------------------------ -->
+
       </td>
     </tr>
 
@@ -83,3 +98,22 @@ if ( isset($_GET['msg']) ) {
 
  </tbody>	
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalAlertCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Atenção!!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Essa categoria já está atribuída a um ou mais anúncios e não pode ser excluída.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
